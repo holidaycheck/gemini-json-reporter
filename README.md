@@ -5,7 +5,7 @@
 
 # gemini-json-reporter
 
-Plugin for [Gemini](http://gemini-testing.github.io/gemini/) which enables to report to a single JSON file.
+Plugin for [Gemini](https://gemini-testing.github.io/) which enables to report to a single JSON file.
 
 The images will be included in the JSON file as base64 encoded strings.
 
