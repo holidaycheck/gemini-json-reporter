@@ -1,0 +1,61 @@
+{
+  "name": "gemini-json-reporter",
+  "version": "1.0.0",
+  "description": "Gemini plugin that generates a single JSON report file.",
+  "main": "lib/reporter.js",
+  "files": [
+      "lib/",
+      "LICENSE",
+      "README.md"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test:unit": "ava test/**/*Spec.js",
+    "pretest": "npm run lint",
+    "test": "nyc npm run test:unit",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "keywords": [
+    "gemini",
+    "gemini-plugin"
+  ],
+  "author": "Mathias Schreck <schreck.mathias@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "0.22.1"
+  },
+  "peerDependencies": {
+    "gemini": "^4.0.0"
+  },
+  "devDependencies": {
+    "ava": "0.16.0",
+    "coveralls": "2.11.14",
+    "eslint": "3.5.0",
+    "eslint-config-holidaycheck": "0.10.0",
+    "eslint-plugin-ava": "3.0.0",
+    "gemini": "4.11.0",
+    "nyc": "8.3.0",
+    "qemitter": "1.1.0",
+    "sinon": "1.17.6"
+  },
+  "nyc": {
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "include": [
+      "lib/**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "cache": true,
+    "all": true,
+    "check-coverage": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/holidaycheck/gemini-json-reporter.git"
+  }
+}
