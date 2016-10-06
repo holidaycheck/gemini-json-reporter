@@ -1,6 +1,6 @@
 {
   "name": "gemini-json-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gemini plugin that generates a single JSON report file.",
   "main": "lib/reporter.js",
   "files": [
