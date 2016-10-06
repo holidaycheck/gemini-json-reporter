@@ -5,7 +5,7 @@ const test = require('ava');
 const sinon = require('sinon');
 const fs = require('fs');
 const QEmitter = require('qemitter');
-const runnerEvents = require('gemini/lib/constants/runner-events');
+const events = require('gemini/lib/constants/events');
 
 test.beforeEach((t) => {
     // eslint-disable-next-line no-param-reassign
@@ -31,7 +31,7 @@ test.serial('writes all results to the default report file location', (t) => {
     reporter(gemini);
 
     gemini.emit('startRunner', runner);
-    runner.emit(runnerEvents.TEST_RESULT, geminiResult);
+    runner.emit(events.TEST_RESULT, geminiResult);
 
     return gemini.emitAndWait('endRunner')
         .then(() => {
@@ -57,7 +57,7 @@ test.serial('writes error results', (t) => {
     reporter(gemini);
 
     gemini.emit('startRunner', runner);
-    runner.emit(runnerEvents.ERROR, error);
+    runner.emit(events.ERROR, error);
 
     return gemini.emitAndWait('endRunner')
         .then(() => {
@@ -86,7 +86,7 @@ test.serial('includes the actual image as base64 encoded string', (t) => {
     reporter(gemini);
 
     gemini.emit('startRunner', runner);
-    runner.emit(runnerEvents.ERROR, error);
+    runner.emit(events.ERROR, error);
 
     return gemini.emitAndWait('endRunner')
         .then(() => {
@@ -121,7 +121,7 @@ test.serial('includes the diff image as base64 encoded string', (t) => {
     reporter(gemini);
 
     gemini.emit('startRunner', runner);
-    runner.emit(runnerEvents.TEST_RESULT, geminiResult);
+    runner.emit(events.TEST_RESULT, geminiResult);
 
     return gemini.emitAndWait('endRunner')
         .then(() => {
